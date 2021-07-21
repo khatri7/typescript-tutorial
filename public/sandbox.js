@@ -1,3 +1,4 @@
+"use strict";
 //explicit type
 var fullName;
 var age;
