@@ -1,4 +1,5 @@
 "use strict";
-var logDetails = function (user) {
-    console.log(user);
+var logDetails;
+logDetails = function (ninja) {
+    return ninja.name + " is " + ninja.age + " years old";
 };

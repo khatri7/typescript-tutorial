@@ -1,6 +1,7 @@
-type StringOrNum = string | number;
-type objWithName = { name: string; uid: StringOrNum };
+type person = { name: string; age: number };
 
-const logDetails = (user: objWithName) => {
-  console.log(user);
+let logDetails: (obj: person) => string;
+
+logDetails = (ninja: person) => {
+  return `${ninja.name} is ${ninja.age} years old`;
 };
