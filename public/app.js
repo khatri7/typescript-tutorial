@@ -1,13 +1,15 @@
-"use strict";
+import { Invoice } from "./classes/Invoice.js";
 // const anchor = document.querySelector("a")!;
 // console.log(anchor.href);
-var form = document.querySelector(".new-item-form");
+const form = document.querySelector(".new-item-form");
 // console.log(form.children);
-var type = document.querySelector("#type");
-var tofrom = document.querySelector("#tofrom");
-var details = document.querySelector("#details");
-var amount = document.querySelector("#amount");
-form.addEventListener("submit", function (e) {
+const type = document.querySelector("#type");
+const tofrom = document.querySelector("#tofrom");
+const details = document.querySelector("#details");
+const amount = document.querySelector("#amount");
+form.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log(type.value, tofrom.value, details.value, amount.value, amount.valueAsNumber);
 });
+const invOne = new Invoice("Abhishek", "website development", 250);
+console.log(invOne.format());

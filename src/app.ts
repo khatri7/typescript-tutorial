@@ -1,3 +1,5 @@
+import { Invoice } from "./classes/Invoice.js";
+
 // const anchor = document.querySelector("a")!;
 
 // console.log(anchor.href);
@@ -22,3 +24,7 @@ form.addEventListener("submit", (e: Event) => {
     amount.valueAsNumber
   );
 });
+
+const invOne = new Invoice("Abhishek", "website development", 250);
+
+console.log(invOne.format());
