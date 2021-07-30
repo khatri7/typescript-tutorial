@@ -1,4 +1,18 @@
 import { Invoice } from "./classes/Invoice.js";
+const me = {
+    name: "John",
+    age: 30,
+    speak(text) {
+        console.log(text);
+    },
+    spend(amount) {
+        return amount;
+    },
+};
+console.log(me);
+const greetPerson = (person) => {
+    console.log(`Hello ${person.name}`);
+};
 // const anchor = document.querySelector("a")!;
 // console.log(anchor.href);
 const form = document.querySelector(".new-item-form");
