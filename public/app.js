@@ -23,6 +23,10 @@ import { Payment } from "./classes/Payment.js";
 // };
 // const anchor = document.querySelector("a")!;
 // console.log(anchor.href);
+const addUID = (object) => {
+    let uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, object), { uid });
+};
 const form = document.querySelector(".new-item-form");
 // console.log(form.children);
 const type = document.querySelector("#type");
@@ -41,13 +45,13 @@ form.addEventListener("submit", (e) => {
         doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
     list.render(doc, type.value, "end");
 });
-// let docOne: HasFormatter;
-// let docTwo: HasFormatter;
-// docOne = new Invoice("yoshi", "web work", 250);
-// docTwo = new Payment("mario", "plumbing work", 200);
-// let docs: HasFormatter[] = [];
-// docs.push(docOne);
-// docs.push(docTwo);
-// console.log(docs);
-// const invOne = new Invoice("Abhishek", "website development", 250);
-// console.log(invOne.format());
+const resourceOne = {
+    uid: 1,
+    resourceName: "One",
+    data: "string data",
+};
+const resourceTwo = {
+    uid: 2,
+    resourceName: "Two",
+    data: { name: "abhishek" },
+};

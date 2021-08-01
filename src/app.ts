@@ -31,6 +31,11 @@ import { HasFormatter } from "./interfaces/HasFormatter.js";
 
 // console.log(anchor.href);
 
+const addUID = <T extends object>(object: T) => {
+  let uid = Math.floor(Math.random() * 100);
+  return { ...object, uid };
+};
+
 const form = document.querySelector(".new-item-form") as HTMLFormElement;
 
 // console.log(form.children);
@@ -69,3 +74,21 @@ form.addEventListener("submit", (e: Event) => {
 // const invOne = new Invoice("Abhishek", "website development", 250);
 
 // console.log(invOne.format());
+
+interface Resource<T> {
+  uid: number;
+  resourceName: string;
+  data: T;
+}
+
+const resourceOne: Resource<string> = {
+  uid: 1,
+  resourceName: "One",
+  data: "string data",
+};
+
+const resourceTwo: Resource<object> = {
+  uid: 2,
+  resourceName: "Two",
+  data: { name: "abhishek" },
+};
