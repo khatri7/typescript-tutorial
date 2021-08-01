@@ -1,30 +1,31 @@
 import { Invoice } from "./classes/Invoice.js";
+import { ListTemplate } from "./classes/ListTemplate.js";
 import { Payment } from "./classes/Payment.js";
 import { HasFormatter } from "./interfaces/HasFormatter.js";
 
-interface IsPerson {
-  name: string;
-  age: number;
-  speak(a: string): void;
-  spend(a: number): number;
-}
+// interface IsPerson {
+//   name: string;
+//   age: number;
+//   speak(a: string): void;
+//   spend(a: number): number;
+// }
 
-const me: IsPerson = {
-  name: "John",
-  age: 30,
-  speak(text: string): void {
-    console.log(text);
-  },
-  spend(amount: number): number {
-    return amount;
-  },
-};
+// const me: IsPerson = {
+//   name: "John",
+//   age: 30,
+//   speak(text: string): void {
+//     console.log(text);
+//   },
+//   spend(amount: number): number {
+//     return amount;
+//   },
+// };
 
-console.log(me);
+// console.log(me);
 
-const greetPerson = (person: IsPerson) => {
-  console.log(`Hello ${person.name}`);
-};
+// const greetPerson = (person: IsPerson) => {
+//   console.log(`Hello ${person.name}`);
+// };
 
 // const anchor = document.querySelector("a")!;
 
@@ -39,6 +40,9 @@ const tofrom = document.querySelector("#tofrom") as HTMLInputElement;
 const details = document.querySelector("#details") as HTMLInputElement;
 const amount = document.querySelector("#amount") as HTMLInputElement;
 
+const ul = document.querySelector("ul")!;
+const list = new ListTemplate(ul);
+
 form.addEventListener("submit", (e: Event) => {
   e.preventDefault();
 
@@ -47,21 +51,21 @@ form.addEventListener("submit", (e: Event) => {
     doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
   } else doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
 
-  console.log(doc);
+  list.render(doc, type.value, "end");
 });
 
-let docOne: HasFormatter;
-let docTwo: HasFormatter;
+// let docOne: HasFormatter;
+// let docTwo: HasFormatter;
 
-docOne = new Invoice("yoshi", "web work", 250);
-docTwo = new Payment("mario", "plumbing work", 200);
+// docOne = new Invoice("yoshi", "web work", 250);
+// docTwo = new Payment("mario", "plumbing work", 200);
 
-let docs: HasFormatter[] = [];
-docs.push(docOne);
-docs.push(docTwo);
+// let docs: HasFormatter[] = [];
+// docs.push(docOne);
+// docs.push(docTwo);
 
-console.log(docs);
+// console.log(docs);
 
-const invOne = new Invoice("Abhishek", "website development", 250);
+// const invOne = new Invoice("Abhishek", "website development", 250);
 
-console.log(invOne.format());
+// console.log(invOne.format());
