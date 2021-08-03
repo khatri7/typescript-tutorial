@@ -92,3 +92,27 @@ const resourceTwo: Resource<object> = {
   resourceName: "Two",
   data: { name: "abhishek" },
 };
+
+// ENUMS
+
+enum ResourceType {
+  BOOK = 1,
+  AUTHOR,
+  FILM,
+  DIRECTOR,
+  PERSON,
+}
+
+interface ResourceTwo<T> {
+  uid: number;
+  resourceType: ResourceType;
+  data: T;
+}
+
+const docThree: ResourceTwo<object> = {
+  uid: 3,
+  resourceType: ResourceType.AUTHOR,
+  data: { name: "abhishek" },
+};
+
+console.log(docThree);
